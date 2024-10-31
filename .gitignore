@@ -1,3 +1,5 @@
 __pycache__
 input_images/*
+!input_images/.gitkeep 
 output_images/*
+!output_images/.gitkeep 
