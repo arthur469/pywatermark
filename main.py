@@ -11,7 +11,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def main():
-    """Example usage of batch watermark processing."""
+    """Example usage of watermark processing."""
     try:
         # Create watermarker instance
         watermarker = ImageWatermarker()
@@ -26,7 +26,7 @@ def main():
             opacity=128
         )
         
-        logger.info("Batch watermark processing completed successfully!")
+        logger.info("Watermark processing completed successfully!")
         
     except Exception as e:
         logger.error(f"Failed to process directory: {str(e)}")
