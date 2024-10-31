@@ -1,99 +1,102 @@
+
 # Image Watermarking Tool
 
-A Python tool for adding watermarks to images in batch processing mode.
+A Python tool for adding customizable text watermarks to images, supporting batch processing with optimal positioning, sizing, and styling. This tool preserves the original images by saving watermarked versions in a separate directory and includes robust error handling and logging.
 
 ## Features
 
-| Feature            | Description                                                                  |
-|--------------------|------------------------------------------------------------------------------|
-| Batch Processing   | Add text watermarks to single images or entire directories                   |
-| Customization      | Customize watermark appearance including text, rotation, color, and opacity |
-| Image Preservation | Original images are preserved with watermarked versions in a separate directory |
-| Error Handling     | Robust error handling and detailed logging                                  |
+- **Batch Processing**: Apply watermarks to a single image or an entire directory.
+- **Customizable Watermarks**: Configure text, color, rotation angle, spacing, font size, and opacity.
+- **Adaptive Sizing**: Automatically calculates the optimal grid and font size based on each image's dimensions.
+- **Error Handling and Logging**: Detailed logging and robust error handling for a reliable experience.
 
 ## Requirements
 
-| Package  | Version |
-|----------|---------|
-| Python   | >= 3.6  |
-| Pillow   | >= 9.0.0 |
-| pathlib  | >= 1.0.1 |
+| Package | Version |
+|---------|---------|
+| Python  | >= 3.6  |
+| Pillow  | >= 9.0.0 |
+| pathlib | >= 1.0.1 |
 
 ## Installation
 
-1. Clone this repository:
-```bash
-git clone https://github.com/Arthur469/pywatermark.git
-cd image-watermarker
-```
-   
-2. Create a virtual environment and activate it:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your_username/image-watermarker.git
+   cd image-watermarker
+   ```
 
-```bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On Unix/MacOS
-source venv/bin/activate
-```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   # On Windows
+   venv\Scripts\activate
+   # On Unix/MacOS
+   source venv/bin/activate
+   ```
 
-3. Install required packages:
-
-```bash
-pip install -r requirements.txt
-```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
+
 ### Basic Usage
-To watermark all images in a directory:
 
-```bash
-python watermark.py --input "path/to/images" --output "path/to/output" --text "My Watermark"
+To watermark all images in a directory, modify the `main.py` script or use the following command format:
+
+```python
+python main.py
 ```
 
-### Advanced Options
-```bash
-python watermark.py --input "path/to/images" \
-                    --output "path/to/output" \
-                    --text "Copyright 2024" \
-                    --angle 45 \
-                    --opacity 0.4 \
-                    --color "white"
-```
+This script will watermark images found in the `input_images` directory with the text "© My Company 2023" and save the watermarked versions to `output_images`.
 
-### Command Line Arguments 
-| Argument | Description | Default |
-|-----------|---------------------------------------|-------------|
-| --input | Input image or directory path | Required|
-| --output | Output directory path | Required|
-| --text | Watermark text content | Required|
-| --angle | Rotation angle of watermark (degrees) | 0 |
-| --opacity | Watermark opacity (0 to 255) | 128 |
-| --color | Text color (hex code) | (255, 255, 255) |
-| --font | Font file path | Arial.ttf |
-| --size | Font size in pixels | 36 |
+### Customization Options
 
-## Examples
-1. Simple watermark on a single image:
+Use the `ImageWatermarker` class in `watermark.py` to configure advanced settings, such as:
 
-```bash
-python main.py --input "photo.jpg" --output "output" --text "© 2024"
-```
+- `rotation_angle`: Rotate watermarks to a custom angle.
+- `font_color`: Set text color (RGB tuple).
+- `opacity`: Control watermark transparency (0-255).
+- `grid_size`: Adjust the number of watermark repetitions across the image.
 
-2. Batch process with custom styling:
+#### Command Line Arguments for `watermark.py`
 
-```bash
-python watermark.py --input "photos" --output "watermarked" --text "CONFIDENTIAL" --angle 45 --color "red" --opacity 0.3
+| Argument    | Description                                | Default                  |
+|-------------|--------------------------------------------|--------------------------|
+| `input_dir` | Directory of images to watermark           | `input_images`           |
+| `output_dir`| Directory for watermarked images           | `output_images`          |
+| `text`      | Text for the watermark                     | "© My Company 2023"      |
+| `rotation_angle` | Angle to rotate the watermark         | `-30`                    |
+| `font_color`| RGB color of the watermark text            | `(255, 255, 255)` (white)|
+| `opacity`   | Opacity level (0-255)                      | `128`                    |
+
+### Example Usage
+
+```python
+from watermark import ImageWatermarker
+
+watermarker = ImageWatermarker()
+watermarker.process_directory(
+    input_dir="input_images",
+    watermark_text="© 2023",
+    output_dir="output_images",
+    rotation_angle=-30,
+    font_color=(255, 255, 255),
+    opacity=128
+)
 ```
 
 ## Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+
+Contributions are welcome! Please submit a pull request with your suggested improvements or fixes.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Acknowledgments
-Built with Pillow for image processing.
-Inspired by the need for simple, batch watermarking solutions.
 
-This structured `README.md` includes installation steps, usage examples, command-line options, and additional information based on the provided data. Let me know if you’d like further adjustments!
+- Built with [Pillow](https://python-pillow.org/) for image manipulation.
+- Inspired by the need for efficient and customizable watermarking solutions.
