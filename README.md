@@ -1,7 +1,7 @@
 
 # Image Watermarking Tool
 
-A Python tool for adding customizable text watermarks to images, supporting batch processing with optimal positioning, sizing, and styling. This tool preserves the original images by saving watermarked versions in a separate directory and includes robust error handling and logging.
+A Python tool for adding customizable text watermarks to images with optimal positioning, sizing, and styling. This tool preserves the original images by saving watermarked versions in a separate directory and includes robust error handling and logging.
 
 ## Features
 
@@ -22,7 +22,7 @@ A Python tool for adding customizable text watermarks to images, supporting batc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/image-watermarker.git
+   git clone https://github.com/arthur469/pywatermark.git
    cd image-watermarker
    ```
 
@@ -60,17 +60,6 @@ Use the `ImageWatermarker` class in `watermark.py` to configure advanced setting
 - `font_color`: Set text color (RGB tuple).
 - `opacity`: Control watermark transparency (0-255).
 - `grid_size`: Adjust the number of watermark repetitions across the image.
-
-#### Command Line Arguments for `watermark.py`
-
-| Argument    | Description                                | Default                  |
-|-------------|--------------------------------------------|--------------------------|
-| `input_dir` | Directory of images to watermark           | `input_images`           |
-| `output_dir`| Directory for watermarked images           | `output_images`          |
-| `text`      | Text for the watermark                     | "© My Company 2023"      |
-| `rotation_angle` | Angle to rotate the watermark         | `-30`                    |
-| `font_color`| RGB color of the watermark text            | `(255, 255, 255)` (white)|
-| `opacity`   | Opacity level (0-255)                      | `128`                    |
 
 ### Example Usage
 
